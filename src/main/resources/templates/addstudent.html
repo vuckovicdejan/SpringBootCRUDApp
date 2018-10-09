@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid">
+    <form th:object="${student}"  th:action="@{/save/}" th:method="POST" >
+        <input type="hidden" th:field="*{id}"/>
+        <table>
+            <tbody>
+            <tr>
+                <td><label>First name:</label></td>
+                <td> <input type="text" class="form-control" th:field="*{firstName}" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Last name:</label></td>
+                <td> <input type="text" class="form-control" th:field="*{lastName}" /></td>
+            </tr>
+
+            <tr>
+                <td><label>Index Number:</label></td>
+                <td> <input type="number"class="form-control" th:field="*{indexNum}"></td>
+            </tr>
+
+            <tr>
+                <td><label></label></td>
+                <td><input type="submit" value="Save" class="save" /></td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+
+    </form>
+</div>
+</body>
+</html>

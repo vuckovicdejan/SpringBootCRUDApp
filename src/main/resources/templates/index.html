@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div>
+    <table class="container-fluid table-bordered">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Index Number</th>
+            <th colspan="2" class="text-center">Action</th>
+        </tr>
+        <tr class="text-center" th:each="students :${student}">
+
+
+            <td th:text="${students.firstName}"></td>
+            <td th:text="${students.lastName}"></td>
+            <td th:text="${students.indexNum}"></td>
+            <td><a href="#" th:href="@{'/index/' + ${students.id} + '/delete'}">Delete</a></td>
+            <td><a href="#" th:href="@{'/index/' + ${students.id} + '/update'}">Update</a></td>
+        </tr>
+
+
+
+
+
+    </table>
+
+    <input type="button"  style="text-align: center" value="Add Student"
+           onclick="window.location.href='addStudent'; return false;"
+           class="add-button center-block"
+    />
+</div>
+</body>
+</html>
